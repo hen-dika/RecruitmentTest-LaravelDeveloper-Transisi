@@ -15,6 +15,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -32,8 +33,8 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
+                    <ul class="navbar-nav ml-auto">
+                        
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -52,8 +53,18 @@
                                 </li>
                             @endif
                         @else
+                            <li class="nav-item {{ (request()->is('home')) ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('home') }}">Home</a>
+                            </li>
+                            <li class="nav-item {{ (request()->is('company')) ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('company.index') }}">Company</a>
+                            </li>
+                            <li class="nav-item {{ (request()->is('employe')) ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('employe.index') }}">Employe</a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <i class="fas fa-user"></i>
                                     {{ Auth::user()->name }}
                                 </a>
 
